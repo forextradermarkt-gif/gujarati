@@ -186,28 +186,74 @@
             border-radius: 50%;
         }
 
-        /* Naya Join Channel Text Button (Same as Screenshot) */
-        .join-btn-text {
-            color: #a855f7; /* Purple color as shown in image */
+        /* Gradient Button with Pulse (Pop-Up) Animation */
+        .join-btn {
+            background: linear-gradient(90deg, #0072ff 0%, #00f2fe 100%);
+            color: #ffcc00; /* Yellow text as in image */
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 50px;
             font-size: 18px;
-            font-weight: 700;
-            text-decoration: underline;
-            text-underline-offset: 4px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            margin-bottom: 25px;
-            cursor: pointer;
-            transition: opacity 0.2s ease;
+            gap: 12px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: transform 0.2s ease;
+            position: relative;
+            
+            /* Continuous Pop up / pulse animation */
+            animation: pulse-glow 2s infinite ease-in-out;
         }
 
-        .join-btn-text:hover {
-            opacity: 0.8;
+        /* Hover karne par thoda aur bada ho */
+        .join-btn:hover {
+            transform: scale(1.05);
+            animation-play-state: paused; /* Hover par pulse pause ho jayega */
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.8);
         }
 
-        .join-btn-text i {
+        /* Yellow circular Telegram Icon */
+        .join-btn .tg-icon-circle {
+            background-color: #ffcc00;
+            color: #0072ff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .join-btn .arrow-icon {
+            color: #ffcc00;
             font-size: 18px;
+        }
+
+        .join-btn span {
+            color: #ffcc00;
+            letter-spacing: 0.5px;
+        }
+
+        /* Pop Up Animation Keyframes */
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(0, 114, 255, 0.4);
+            }
+            50% {
+                transform: scale(1.04); /* Thoda pop up hoga */
+                box-shadow: 0 0 25px rgba(0, 242, 254, 0.7); /* Glow badhega */
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(0, 114, 255, 0.4);
+            }
         }
 
         /* Footer Info */
@@ -217,7 +263,6 @@
             gap: 20px;
             width: 100%;
             margin-bottom: 15px;
-            margin-top: 5px;
         }
 
         .footer-item {
@@ -288,11 +333,13 @@
             </div>
         </div>
 
-        <!-- Updated Join Link (Same as Image) -->
-        <a href="https://t.me/+GBaRxecX6idkNGM1" target="_blank" class="join-btn-text">
-            <i class="fa-brands fa-telegram"></i>
+        <!-- Pop up Animation Gradient Join Button -->
+        <a href="https://t.me/+GBaRxecX6idkNGM1" target="_blank" class="join-btn">
+            <div class="tg-icon-circle">
+                <i class="fa-brands fa-telegram"></i>
+            </div>
             <span>JOIN CHANNEL</span>
-            <i class="fa-solid fa-arrow-right"></i>
+            <i class="fa-solid fa-arrow-right arrow-icon"></i>
         </a>
 
         <!-- Footer Info -->
