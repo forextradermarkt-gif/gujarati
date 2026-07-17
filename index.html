@@ -92,6 +92,9 @@
             color: #ffffff;
             font-weight: 800;
             font-size: 20px;
+            min-width: 75px; /* Loading ke time layout hile na isliye */
+            display: inline-block;
+            text-align: right;
         }
 
         .sub-text {
@@ -308,7 +311,8 @@
         <!-- Subscribers Badge -->
         <div class="subscribers-badge">
             <i class="fa-brands fa-telegram"></i>
-            <span class="sub-count">9,980+</span>
+            <!-- Counting code ke liye isme custom attributes dale hain -->
+            <span class="sub-count" id="counter" data-target="9980">0</span>
             <span class="sub-text">Subscribers</span>
         </div>
 
@@ -357,6 +361,34 @@
             <i class="fa-solid fa-comment-dots"></i> Telegram Support
         </a>
     </div>
+
+    <!-- JavaScript code for smooth counting animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counter = document.getElementById("counter");
+            const target = parseInt(counter.getAttribute("data-target"), 10);
+            const duration = 2000; // Animation total 2 seconds chalegi
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                
+                // Ease-out effect (shuru me tez chalega, last me thoda slow hokar rukega)
+                const easeOutQuad = progress * (2 - progress); 
+                const currentValue = Math.floor(easeOutQuad * target);
+                
+                // Number formatting (jaise 9,980 me comma lagana)
+                counter.innerText = currentValue.toLocaleString('en-IN') + "+";
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                }
+            }
+
+            requestAnimationFrame(updateCounter);
+        });
+    </script>
 
 </body>
 </html>
