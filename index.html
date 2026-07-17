@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gujrati Treder Card</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1078725927916927');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1078725927916927&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <!-- Font Awesome Icons ke liye -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -92,7 +111,7 @@
             color: #ffffff;
             font-weight: 800;
             font-size: 20px;
-            min-width: 85px; /* Layout shake free rakhne ke liye */
+            min-width: 85px; /* Layout dynamic loading me shake na ho */
             display: inline-block;
             text-align: right;
         }
@@ -311,7 +330,7 @@
         <!-- Subscribers Badge -->
         <div class="subscribers-badge">
             <i class="fa-brands fa-telegram"></i>
-            <!-- Counter dynamic element -->
+            <!-- Counter element -->
             <span class="sub-count" id="counter">0</span>
             <span class="sub-text">Subscribers</span>
         </div>
@@ -367,7 +386,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             const counter = document.getElementById("counter");
             const target = 9880; // Pehle 9880 tak tez speed se jayega
-            const duration = 1500; // 1.5 seconds mein fast scroll poora hoga
+            const duration = 1500; // 1.5 seconds me fast scroll poora hoga
             const startTime = performance.now();
             let currentMembers = 0;
 
@@ -375,7 +394,7 @@
                 const elapsedTime = currentTime - startTime;
                 const progress = Math.min(elapsedTime / duration, 1);
                 
-                // Ease-out curve (jaldi fast speed, fir smooth entry)
+                // Ease-out curve
                 const easeOutQuad = progress * (2 - progress); 
                 currentMembers = Math.floor(easeOutQuad * target);
                 
@@ -384,18 +403,17 @@
                 if (progress < 1) {
                     requestAnimationFrame(updateCounter);
                 } else {
-                    // Fast scroll khatam hone ke turant baad live counter trigger hoga
-                    // Ensure karenge ki value poori 9880 ho pehle
+                    // Fast scroll khatam hote hi, value exact 9880 set karke live background chalu karega
                     currentMembers = target;
                     counter.innerText = currentMembers.toLocaleString('en-IN') + "+";
                     startLiveGrowth();
                 }
             }
 
-            // Live increment function (Ab har 1 second mein exact 1 member automatic badhta rahega)
+            // Live increment loop (Har 1 second me 1 naya member automatic join karega)
             function startLiveGrowth() {
                 setInterval(() => {
-                    currentMembers += 1; // Har tick par pakka ek member plus hoga
+                    currentMembers += 1;
                     counter.innerText = currentMembers.toLocaleString('en-IN') + "+";
                 }, 1000); // 1000ms = 1 Second
             }
