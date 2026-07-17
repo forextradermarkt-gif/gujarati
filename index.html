@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gujrati Treder Card</title>
+    <!-- Font Awesome Icons ke liye -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0b0f19;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Main Card Container */
+        .card {
+            width: 100%;
+            max-width: 400px;
+            background: linear-gradient(180deg, #0f1626 0%, #080b11 100%);
+            border: 2px solid #2a2215;
+            border-radius: 40px;
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        /* SEBI Badge */
+        .sebi-badge {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #d4af37;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        /* Main Heading */
+        .title {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Subscribers Badge */
+        .subscribers-badge {
+            background-color: #0e1624;
+            border: 1px solid #1f2a3f;
+            border-radius: 50px;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            width: 90%;
+            justify-content: center;
+        }
+
+        .subscribers-badge i {
+            color: #229ED9;
+            font-size: 20px;
+        }
+
+        .sub-count {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .sub-text {
+            color: #a0aec0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Accuracy Card */
+        .accuracy-card {
+            background: linear-gradient(135deg, rgba(16, 28, 36, 0.9) 0%, rgba(10, 15, 24, 0.9) 100%);
+            border-left: 3px solid #00f2fe;
+            border-top: 1px solid rgba(0, 242, 254, 0.2);
+            border-bottom: 1px solid rgba(0, 242, 254, 0.1);
+            border-right: 1px solid rgba(0, 242, 254, 0.1);
+            border-radius: 24px;
+            padding: 22px 15px;
+            width: 100%;
+            margin-bottom: 25px;
+            box-shadow: inset 0px 0px 15px rgba(0, 242, 254, 0.05);
+        }
+
+        .accuracy-title {
+            color: #3df2b6;
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .accuracy-subtitle {
+            color: #3df2b6;
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* Chart Visualizer Area */
+        .chart-box {
+            background: rgba(10, 15, 24, 0.6);
+            border: 1.5px solid #1c1d1a;
+            border-radius: 24px;
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bars-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 12px;
+            height: 90px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .bar {
+            width: 32px;
+            border-radius: 8px;
+            background-color: #31d0aa;
+            transition: transform 0.3s ease;
+        }
+
+        .bar-1 { height: 35%; }
+        .bar-2 { height: 65%; }
+        .bar-3 { 
+            height: 90%; 
+            background-color: #f25f5c; /* Red highlight bar */
+        }
+        .bar-4 { height: 80%; }
+
+        .chart-label {
+            color: #718096;
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .chart-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #31d0aa;
+            border-radius: 50%;
+        }
+
+        /* Join Button */
+        .join-btn {
+            background: linear-gradient(90deg, #0072ff 0%, #00f2fe 100%);
+            color: #ffffff;
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0, 114, 255, 0.4);
+            margin-bottom: 30px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .join-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 242, 254, 0.5);
+        }
+
+        .join-btn i.fa-telegram {
+            background-color: #ffcc00;
+            color: #0072ff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .join-btn .arrow-icon {
+            color: #ffcc00;
+            font-size: 18px;
+        }
+
+        .join-btn span {
+            color: #ffcc00;
+        }
+
+        /* Footer Info */
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .footer-item {
+            color: #a0aec0;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+        }
+
+        .footer-item i {
+            color: #d4af37;
+        }
+
+        .tg-support {
+            color: #a0aec0;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .tg-support i {
+            color: #d4af37;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- SEBI Registered Badge -->
+        <div class="sebi-badge">
+            <i class="fa-solid fa-shield"></i> SEBI REGISTERED
+        </div>
+
+        <!-- Heading -->
+        <h1 class="title">Gujrati Treder</h1>
+
+        <!-- Subscribers Badge -->
+        <div class="subscribers-badge">
+            <i class="fa-brands fa-telegram"></i>
+            <span class="sub-count">9,980+</span>
+            <span class="sub-text">Subscribers</span>
+        </div>
+
+        <!-- Accuracy Card -->
+        <div class="accuracy-card">
+            <div class="accuracy-title">
+                <i class="fa-solid fa-chart-line"></i> Upto 95% Accuracy
+            </div>
+            <div class="accuracy-subtitle">in Options Trading</div>
+        </div>
+
+        <!-- Options Flow Chart Visual -->
+        <div class="chart-box">
+            <div class="bars-container">
+                <div class="bar bar-1"></div>
+                <div class="bar bar-2"></div>
+                <div class="bar bar-3"></div>
+                <div class="bar bar-4"></div>
+            </div>
+            <div class="chart-label">
+                Options Flow Visual <span class="chart-dot"></span>
+            </div>
+        </div>
+
+        <!-- Join Button -->
+        <a href="#" class="join-btn">
+            <i class="fa-brands fa-telegram"></i>
+            <span>JOIN CHANNEL</span>
+            <i class="fa-solid fa-arrow-right arrow-icon"></i>
+        </a>
+
+        <!-- Footer Info -->
+        <div class="footer-info">
+            <div class="footer-item">
+                <i class="fa-solid fa-headset"></i> Customer Support
+            </div>
+            <div class="footer-item">
+                <i class="fa-regular fa-clock"></i> 24/7 Active
+            </div>
+        </div>
+
+        <!-- Telegram Support Link -->
+        <a href="#" class="tg-support">
+            <i class="fa-solid fa-comment-dots"></i> Telegram Support
+        </a>
+    </div>
+
+</body>
+</html> 
