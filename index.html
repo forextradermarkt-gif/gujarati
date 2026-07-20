@@ -26,6 +26,12 @@
     
     fbq('init', '1078725927916927');
     fbq('track', 'PageView');
+    
+    // FIXED: Free Subscription ke liye value aur currency yahan add kar di hai
+    fbq('track', 'Subscribe', {
+        value: 0.00,
+        currency: 'USD'
+    });
     </script>
     <noscript>
         <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1078725927916927&ev=PageView&noscript=1" />
