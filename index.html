@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gujrati Treder Card</title>
     
-    <!-- Meta Pixel Code (GitHub Standard Syntax) -->
+    <!-- Meta Pixel Code -->
     <script>
     (function(f,b,e,v,n,t,s) {
         if(f.fbq)return;
@@ -26,19 +26,13 @@
     
     fbq('init', '1078725927916927');
     fbq('track', 'PageView');
-    
-    // FIXED: Free Subscription ke liye value aur currency yahan add kar di hai
-    fbq('track', 'Subscribe', {
-        value: 0.00,
-        currency: 'USD'
-    });
     </script>
     <noscript>
         <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1078725927916927&ev=PageView&noscript=1" />
     </noscript>
     <!-- End Meta Pixel Code -->
 
-    <!-- Font Awesome Icons ke liye -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,7 +56,6 @@
             padding: 20px;
         }
 
-        /* Main Card Container */
         .card {
             width: 100%;
             max-width: 400px;
@@ -77,7 +70,6 @@
             text-align: center;
         }
 
-        /* SEBI Badge */
         .sebi-badge {
             background: rgba(212, 175, 55, 0.1);
             border: 1px solid rgba(212, 175, 55, 0.4);
@@ -93,7 +85,6 @@
             margin-bottom: 25px;
         }
 
-        /* Main Heading */
         .title {
             color: #ffffff;
             font-size: 28px;
@@ -103,7 +94,6 @@
             text-transform: uppercase;
         }
 
-        /* Subscribers Badge */
         .subscribers-badge {
             background-color: #0e1624;
             border: 1px solid #1f2a3f;
@@ -126,7 +116,7 @@
             color: #ffffff;
             font-weight: 800;
             font-size: 20px;
-            min-width: 85px; /* Layout dynamic loading me shake na ho */
+            min-width: 85px;
             display: inline-block;
             text-align: right;
         }
@@ -137,7 +127,6 @@
             font-weight: 500;
         }
 
-        /* Accuracy Card */
         .accuracy-card {
             background: linear-gradient(135deg, rgba(16, 28, 36, 0.9) 0%, rgba(10, 15, 24, 0.9) 100%);
             border-left: 3px solid #00f2fe;
@@ -169,7 +158,6 @@
             opacity: 0.9;
         }
 
-        /* Chart Visualizer Area */
         .chart-box {
             background: rgba(10, 15, 24, 0.6);
             border: 1.5px solid #1c1d1a;
@@ -201,10 +189,7 @@
 
         .bar-1 { height: 35%; }
         .bar-2 { height: 65%; }
-        .bar-3 { 
-            height: 90%; 
-            background-color: #f25f5c; /* Red highlight bar */
-        }
+        .bar-3 { height: 90%; background-color: #f25f5c; }
         .bar-4 { height: 80%; }
 
         .chart-label {
@@ -223,10 +208,9 @@
             border-radius: 50%;
         }
 
-        /* Gradient Button with Pulse (Pop-Up) Animation */
         .join-btn {
             background: linear-gradient(90deg, #0072ff 0%, #00f2fe 100%);
-            color: #ffcc00; /* Yellow text as in image */
+            color: #ffcc00;
             width: 100%;
             padding: 16px 20px;
             border-radius: 50px;
@@ -242,19 +226,15 @@
             margin-bottom: 30px;
             transition: transform 0.2s ease;
             position: relative;
-            
-            /* Continuous Pop up / pulse animation */
             animation: pulse-glow 2s infinite ease-in-out;
         }
 
-        /* Hover karne par thoda aur bada ho */
         .join-btn:hover {
             transform: scale(1.05);
-            animation-play-state: paused; /* Hover par pulse pause ho jayega */
+            animation-play-state: paused;
             box-shadow: 0 0 30px rgba(0, 242, 254, 0.8);
         }
 
-        /* Yellow circular Telegram Icon */
         .join-btn .tg-icon-circle {
             background-color: #ffcc00;
             color: #0072ff;
@@ -277,23 +257,12 @@
             letter-spacing: 0.5px;
         }
 
-        /* Pop Up Animation Keyframes */
         @keyframes pulse-glow {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 15px rgba(0, 114, 255, 0.4);
-            }
-            50% {
-                transform: scale(1.04); /* Thoda pop up hoga */
-                box-shadow: 0 0 25px rgba(0, 242, 254, 0.7); /* Glow badhega */
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 15px rgba(0, 114, 255, 0.4);
-            }
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 114, 255, 0.4); }
+            50% { transform: scale(1.04); box-shadow: 0 0 25px rgba(0, 242, 254, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 114, 255, 0.4); }
         }
 
-        /* Footer Info */
         .footer-info {
             display: flex;
             justify-content: center;
@@ -312,9 +281,7 @@
             text-transform: uppercase;
         }
 
-        .footer-item i {
-            color: #d4af37;
-        }
+        .footer-item i { color: #d4af37; }
 
         .tg-support {
             color: #a0aec0;
@@ -324,11 +291,10 @@
             align-items: center;
             gap: 6px;
             text-decoration: none;
+            cursor: pointer;
         }
 
-        .tg-support i {
-            color: #d4af37;
-        }
+        .tg-support i { color: #d4af37; }
     </style>
 </head>
 <body>
@@ -345,7 +311,6 @@
         <!-- Subscribers Badge -->
         <div class="subscribers-badge">
             <i class="fa-brands fa-telegram"></i>
-            <!-- Counter element -->
             <span class="sub-count" id="counter">0</span>
             <span class="sub-text">Subscribers</span>
         </div>
@@ -371,14 +336,14 @@
             </div>
         </div>
 
-        <!-- Pop up Animation Gradient Join Button -->
-        <a href="https://t.me/+GBaRxecX6idkNGM1" target="_blank" class="join-btn">
+        <!-- FIXED BUTTON: Trigger Pixel + Smart Direct Telegram Open -->
+        <button class="join-btn" onclick="redirectToTelegram()">
             <div class="tg-icon-circle">
                 <i class="fa-brands fa-telegram"></i>
             </div>
             <span>JOIN CHANNEL</span>
             <i class="fa-solid fa-arrow-right arrow-icon"></i>
-        </a>
+        </button>
 
         <!-- Footer Info -->
         <div class="footer-info">
@@ -390,26 +355,46 @@
             </div>
         </div>
 
-        <!-- Telegram Support Link -->
-        <a href="https://t.me/+GBaRxecX6idkNGM1" target="_blank" class="tg-support">
+        <!-- FIXED LINK: Telegram Support -->
+        <div class="tg-support" onclick="redirectToTelegram()">
             <i class="fa-solid fa-comment-dots"></i> Telegram Support
-        </a>
+        </div>
     </div>
 
-    <!-- Live Dynamic Counting JS Code -->
     <script>
+        // SMART REDIRECT FUNCTION: Pixel bhi track hoga aur application bhi khulegi
+        function redirectToTelegram() {
+            // 1. Pixel track karega free subscription parameters ke sath
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Subscribe', { value: 0.00, currency: 'USD' });
+            }
+
+            // 2. Direct deep link protocol app open karne ke liye
+            var tgProtocol = "tg://resolve?domain=+GBaRxecX6idkNGM1"; 
+            var tgWebUrl = "https://t.me/+GBaRxecX6idkNGM1";
+
+            // Pehle app protocol try karega, agar failed toh web url kholega
+            var start = Date.now();
+            window.location.href = tgProtocol;
+
+            setTimeout(function() {
+                if (Date.now() - start < 1500) {
+                    window.open(tgWebUrl, '_blank');
+                }
+            }, 1000);
+        }
+
+        // Live Dynamic Counting Code
         document.addEventListener("DOMContentLoaded", () => {
             const counter = document.getElementById("counter");
-            const target = 9880; // Pehle 9880 tak tez speed se jayega
-            const duration = 1500; // 1.5 seconds me fast scroll poora hoga
+            const target = 9880;
+            const duration = 1500;
             const startTime = performance.now();
             let currentMembers = 0;
 
             function updateCounter(currentTime) {
                 const elapsedTime = currentTime - startTime;
                 const progress = Math.min(elapsedTime / duration, 1);
-                
-                // Ease-out curve
                 const easeOutQuad = progress * (2 - progress); 
                 currentMembers = Math.floor(easeOutQuad * target);
                 
@@ -418,19 +403,17 @@
                 if (progress < 1) {
                     requestAnimationFrame(updateCounter);
                 } else {
-                    // Fast scroll khatam hote hi live counter background me chalu karega
                     currentMembers = target;
                     counter.innerText = currentMembers.toLocaleString('en-IN') + "+";
                     startLiveGrowth();
                 }
             }
 
-            // Live increment loop (Har 1 second me 1 naya member automatic badhta rahega)
             function startLiveGrowth() {
                 setInterval(() => {
                     currentMembers += 1;
                     counter.innerText = currentMembers.toLocaleString('en-IN') + "+";
-                }, 1000); // 1000ms = 1 Second
+                }, 1000);
             }
 
             requestAnimationFrame(updateCounter);
